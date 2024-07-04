@@ -43,6 +43,20 @@ export default function Index() {
           </a>
         </li>
       </ul>
+      <hr />
+      <h1 className="text-3xl">My Profile</h1>
+      <ul className="list-disc mt-4 pl-6 space-y-2">
+        <li>Name: Parit Pholnikorn</li>
+        <li>Class: Information Technology</li>
+        <li>
+          Email: 
+          <a href="mailto:parit_pho@rmutto.ac.th">
+            <img src="/images/2.jpg" alt="Contact me." style={{ width: "100px", height: "100px" }} />
+          </a>
+        </li>
+        <li>MY Picture</li>
+        <img src="/images/3.jpg" alt="Contact me." style={{ width: "500px", height: "500px" }} />
+      </ul>
     </div>
   );
 }
