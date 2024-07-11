@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-
+import { Mycard } from "./mycard";
 export const meta: MetaFunction = () => {
   return [
     { title: "New Remix App" },
@@ -10,6 +10,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="font-sans p-4">
+    <Mycard />
       <h1 className="text-3xl">Welcome to Remix</h1>
       <ul className="list-disc mt-4 pl-6 space-y-2">
         <li>
@@ -51,11 +52,11 @@ export default function Index() {
         <li>
           Email: 
           <a href="mailto:parit_pho@rmutto.ac.th">
-            <img src="/images/2.jpg" alt="Contact me." style={{ width: "100px", height: "100px" }} />
+            <img src="public/images/2.jpg" alt="Contact me." style={{ width: "100px", height: "100px" }} />
           </a>
         </li>
         <li>MY Picture</li>
-        <img src="/images/3.jpg" alt="Contact me." style={{ width: "500px", height: "500px" }} />
+        <img src="public/images/3.jpg" alt="Contact me." style={{ width: "500px", height: "500px" }} />
       </ul>
     </div>
   );
