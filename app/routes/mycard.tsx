@@ -1,4 +1,5 @@
 import { cards } from "./data";
+import { useState } from "react";
 function IsMember ({ active } : {active:boolean}){
     if(active)
         return <span>✅ Hi, VIP Member.</span>
@@ -39,10 +40,13 @@ function Profile ({id, name, biot, bgProf, userIcon, userName, createdAt, active
 }
 
 export function Mycard (){
+  const [active,setActive] = useState(true);
     const name ="Parit Pholnikorn";
-    const note ="Web Programming #softwareengineering";
+    const note ="Web Programming";
+    const note2 ="#softwareengineering";
     const chk = true;
-    const cardItems = cards.map(cardItem => <>
+    const items = cards.filter(cardItems => cardItems.active === active);
+    const cardItems = items.map(cardItem => <>
    <Profile
    id= {cardItem.id}
    name={cardItem.name}
@@ -53,13 +57,37 @@ export function Mycard (){
    createdAt={cardItem.createdAt}
    active={cardItem.active}/>
     </>);
+    function handleClackActive(){
+      setActive(true);
+      
+      
+    }
+    function handleClackNonActive(){
+      setActive(false);
+      
+      
+    }
     return (
-        <>
+     
+      <div className ="m-3 bg-green-400 p-10">
         <h1 className="text-3xl">My Card: {name}</h1>
+        <div className="flex flex-row">
+        <div className = "basis-1/2 m-2 p-3 bg-green-300 rounded-3xl text-blue-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+</svg>{note}
+</div>    
+       
+        <div className = "basis-1/2 m-2 p-3 bg-green-300 rounded-3xl "><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="size-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+</svg>
+{note2}</div></div>
         {/* <Profile /><hr /> */}
         {cardItems}
+        <button className="w-1/2 bg-blue-600 text-red-300 rounded-3xl" onClick={handleClackActive}>Active</button>
+        <button className="w-1/2 bg-blue-900 text-red-300 rounded-3xl" onClick={handleClackNonActive}>Non Active</button>
+      </div>
        
         
-        </>
+       
 );
 }
