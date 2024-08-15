@@ -35,6 +35,7 @@ function Profile ({id, name, biot, bgProf, userIcon, userName, createdAt, active
             </div>
           </div>
         </div>
+        <a href={`/cards/${id}`} className="text-blue-500 hover:underline">View Details</a>
         </div>
         );
 }
